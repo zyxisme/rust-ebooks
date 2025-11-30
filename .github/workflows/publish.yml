@@ -2,7 +2,7 @@ name: Publish Rust eBooks
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -13,9 +13,9 @@ permissions:
 env:
   BOOKS: |
     - id: rust-book
-      repo: https://github.com/rust-lang/book.git
-      website: https://doc.rust-lang.org/stable/book
-      title: The Rust Programming Language
+      repo: https://github.com/KaiserY/trpl-zh-cn.git
+      website: https://kaisery.github.io/trpl-zh-cn/
+      title: Rust 程序设计语言
 
     - id: rust-by-example
       repo: https://github.com/rust-lang/rust-by-example.git
