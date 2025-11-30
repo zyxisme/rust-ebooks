@@ -1,8 +1,10 @@
 name: Publish Rust eBooks
 
 on:
-  schedule:
-    - cron: '0 3 * * * *'
+  push:
+      branches: [main, uat, release*]
+  pull_request_target:
+      branches: [main, uat, release*]
   workflow_dispatch:
 
 permissions:
