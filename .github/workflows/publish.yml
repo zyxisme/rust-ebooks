@@ -134,11 +134,6 @@ jobs:
                 exit 1
               fi
 
-              cp "$EPUB_FILE" "$OLDPWD/site/$epub_out"
-              ebook-convert "$OLDPWD/site/$epub_out" "$OLDPWD/site/$azw3_out"
-              ebook-convert "$OLDPWD/site/$epub_out" "$OLDPWD/site/$mobi_out"
-              ebook-convert "$OLDPWD/site/$epub_out" "$OLDPWD/site/$pdf_out" --extra-css "$GITHUB_WORKSPACE/.github/workflows/wrap-code.css"
-              cd -
 
               website=$(echo "$book_json" | jq -r .website)
               echo "1. **$title** (last commit: $last_commit_at)  " >> mdbook/src/README.md
