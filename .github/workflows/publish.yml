@@ -151,6 +151,7 @@ jobs:
               echo "$log" > "book-logs/success-${id}.log"
               succeeded_count=$((succeeded_count + 1))
             fi
+            echo "$log"
           done
 
           echo
