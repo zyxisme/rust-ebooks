@@ -1,10 +1,6 @@
 name: Publish Rust eBooks
 
 on:
-  push:
-      branches: [main, uat, release*]
-  pull_request_target:
-      branches: [main, uat, release*]
   workflow_dispatch:
 
 permissions:
@@ -16,78 +12,8 @@ env:
   BOOKS: |
     - id: rust-book
       repo: https://github.com/KaiserY/trpl-zh-cn.git
-      website: https://kaisery.github.io/trpl-zh-cn/
-      title: Rust 程序设计语言
-
-    - id: rust-by-example
-      repo: https://github.com/rust-lang/rust-by-example.git
-      website: https://doc.rust-lang.org/rust-by-example
-      title: Rust By Example
-
-    - id: rust-reference
-      repo: https://github.com/rust-lang/reference.git
-      website: https://doc.rust-lang.org/reference
-      title: The Rust Reference
-
-    - id: rustonomicon
-      repo: https://github.com/rust-lang/nomicon.git
-      website: https://doc.rust-lang.org/nomicon
-      title: The Rustonomicon
-
-    - id: cargo-book
-      repo: https://github.com/rust-lang/cargo.git
-      website: https://doc.rust-lang.org/cargo
-      title: The Cargo Book
-      build_dir: cargo-book/src/doc
-
-    - id: rust-cookbook
-      repo: https://github.com/rust-lang-nursery/rust-cookbook
-      website: https://rust-lang-nursery.github.io/rust-cookbook
-      title: Rust Cookbook
-
-    - id: async-book
-      repo: https://github.com/rust-lang/async-book.git
-      website: https://rust-lang.github.io/async-book
-      title: Asynchronous Programming in Rust
-
-    - id: too-many-lists
-      repo: https://github.com/rust-unofficial/too-many-lists
-      website: https://rust-unofficial.github.io/too-many-lists
-      title: Learning Rust With Entirely Too Many Linked Lists
-
-    - id: unsafe-code-guidelines
-      repo: https://github.com/rust-lang/unsafe-code-guidelines.git
-      website: https://rust-lang.github.io/unsafe-code-guidelines
-      title: Rust Unsafe Code Guidelines
-      build_dir: unsafe-code-guidelines/reference
-
-    - id: embedded-book
-      repo: https://github.com/rust-embedded/book.git
-      website: https://docs.rust-embedded.org/book
-      title: The Embedded Rust Book
-
-    - id: discovery-mb2
-      repo: https://github.com/rust-embedded/discovery-mb2
-      website: https://docs.rust-embedded.org/discovery-mb2
-      title: Embedded Discovery Book
-      build_dir: discovery-mb2/mdbook
-
-    - id: wasm-bindgen-book
-      repo: https://github.com/rustwasm/wasm-bindgen.git
-      website: https://rustwasm.github.io/wasm-bindgen
-      title: The wasm-bindgen Guide
-      build_dir: wasm-bindgen-book/guide
-
-    - id: embedded-rtic
-      repo: https://github.com/rtic-rs/rtic.git
-      website: https://rtic.rs/1/book/en/
-      title: Real-Time Interrupt-driven Concurrency
-      build_dir: embedded-rtic/book/en
-
-    - id: rust-wasm-book
-      repo: https://github.com/rustwasm/book.git
-      website: https://rustwasm.github.io/book
-      title: The Rust and WebAssembly Book
+      website: https://doc.rust-lang.org/stable/book
+      title: The Rust Programming Language
 
 jobs:
   build:
@@ -109,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y calibre git mdbook-epub
+          sudo apt-get install -y calibre git
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
